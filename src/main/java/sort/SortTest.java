@@ -10,8 +10,8 @@ import org.junit.Test;
 public class SortTest {
 
     @Autowired
-    @Qualifier("bubbleSort")
-    private ISort bubbleSort;
+    @Qualifier("radixSort")
+    private ISort sortMethod;
 
     public static void main(String[] args){
         ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -21,8 +21,15 @@ public class SortTest {
 
     @Test
     public void testSort(){
-        int arr[] = {5,8,2,7,6,4,3,1};
-        bubbleSort.sort(arr);
+        int arr[] = {12,20,5,16,15,1,30,20,45,23,9};
+        sortMethod.sort(arr);
+        print(arr);
+    }
+
+    public void print(int a[]){
+        for(int i=0;i<a.length;i++){
+            System.out.print(a[i] + "  ");
+        }
     }
 
 }
